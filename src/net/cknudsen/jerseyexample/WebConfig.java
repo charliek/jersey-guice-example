@@ -20,15 +20,15 @@ public class WebConfig extends GuiceServletContextListener {
 			@Override
 			protected void configureServlets() {
 				// providers
-				// bind(VelocityProvider.class);
+				bind(VelocityProvider.class);
 				
 				// web resources
 				bind(GuiceResource.class);
 				Map<String, String> params = new HashMap<String, String>();
 				//params.put("com.sun.jersey.config.feature.ImplicitViewables", "true");
 				//params.put("com.sun.jersey.config.feature.Redirect", "true");
+				//params.put("com.sun.jersey.config.property.packages", "net.cknudsen.jerseyexample.web");
 				serveRegex("/(images|css|jsp)/.*").with(DefaultWrapperServlet.class);
-				params.put("com.sun.jersey.config.property.packages", "net.cknudsen.jerseyexample.web");
 				serve("/*").with(GuiceContainer.class, params);
 			}
 		});

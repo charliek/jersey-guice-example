@@ -1,0 +1,6 @@
+#set( $page_title = "TOC" )
+#set( $page_headline = "TOC" )
+#define( $content )
+	This is the page content: $msg
+#end
+#parse( "template.vm" )
